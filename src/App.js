@@ -1,10 +1,18 @@
 import { Component } from "react";
 import Comment from "./components/Comment"
+import HomePage from "./pages/HomePage"
+import AuthenticationPage from "./pages/AuthenticationPage"
+import ShopPage from "./pages/ShopPage"
+import TrackerPage from "./pages/TrackerPage"
+
 
 function App() {
   return (
     <div className="App">
-     <Comment name = "Sean"/>
+     <HomePage />
+     <ShopPage />
+     <TrackerPage />
+     <AuthenticationPage />
     </div>
   );
 }
