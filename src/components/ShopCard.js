@@ -9,13 +9,12 @@ export default class ShopCard extends Component {
 		return (
 			<div className="col-sm-12 col-md-6 col-lg-4 form-group">
 				<Card style={{ width: "18rem" }}>
-					<Card.Img variant='top' src='/images/heroes/Capt.png' />
+					<Card.Img variant='top' src={this.props.hero.imgPath} />
 
 					<Card.Body>
-						<Card.Title>Calisthenics with Capt</Card.Title>
+						<Card.Title>{this.props.hero.title}</Card.Title>
 						<Card.Text>
-							Gain relative strength while building a great physique under the
-							supervision of our trainer Steve Rogers
+            {this.props.hero.description}
 						</Card.Text>
 						<Button variant='primary'>Learn More</Button>
 					</Card.Body>
