@@ -7,16 +7,17 @@ import Button from "react-bootstrap/Button";
 export default class ShopCard extends Component {
 	render() {
 		return (
-			<div>
+			<div className="col-sm-12 col-md-6 col-lg-4 form-group">
 				<Card style={{ width: "18rem" }}>
-					<Card.Img variant='top' src='holder.js/100px180' />
+					<Card.Img variant='top' src='/images/heroes/Capt.png' />
+
 					<Card.Body>
-						<Card.Title>Card Title</Card.Title>
+						<Card.Title>Calisthenics with Capt</Card.Title>
 						<Card.Text>
-							Some quick example text to build on the card title and make up the
-							bulk of the card's content.
+							Gain relative strength while building a great physique under the
+							supervision of our trainer Steve Rogers
 						</Card.Text>
-						<Button variant='primary'>Go somewhere</Button>
+						<Button variant='primary'>Learn More</Button>
 					</Card.Body>
 				</Card>
 			</div>
