@@ -1,6 +1,11 @@
-import React from 'react'
+import React,{useState} from 'react'
 
 export default function SignUp() {
+
+	const [user, setUser] = useState("");
+	const [pass, setPass] = useState("");
+
+
   return (
     <div  className='container'>
     <h2>Sign Up</h2>
