@@ -16,7 +16,7 @@ export default class ShopCard extends Component {
 						<Card.Text>
             {this.props.hero.description}
 						</Card.Text>
-						<Button variant='primary'>Learn More</Button>
+						<Button variant='primary'>Add to Basket</Button>
 					</Card.Body>
 				</Card>
 			</div>
