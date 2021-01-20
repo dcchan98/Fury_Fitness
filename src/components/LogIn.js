@@ -7,11 +7,15 @@ export default function LogIn() {
 	const [pass, setPass] = useState("");
 
 	const handleSignIn = (e) => {
+    e.preventDefault();
+    // To handle sign in with firebase
 		console.log(`user: ${user}`);
 		console.log(`pass: ${pass}`);
 	};
 
 	const handleGoogle = (e) => {
+    // To handle sign in with firebase
+    e.preventDefault();
 		console.log("OAUTH");
 	};
 
