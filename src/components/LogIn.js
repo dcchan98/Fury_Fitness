@@ -1,37 +1,59 @@
-import React from 'react'
+/** @format */
+
+import React, { useState } from "react";
 
 export default function LogIn() {
-  return (
-    <div  className='container'>
-    <h2>Log In</h2>
-      <form>
+	const [user, setUser] = useState("");
+	const [pass, setPass] = useState("");
+
+	const handleSignIn = (e) => {
+		console.log(`user: ${user}`);
+		console.log(`pass: ${pass}`);
+	};
+
+	const handleGoogle = (e) => {
+		console.log("OAUTH");
+	};
+
+	return (
+		<div className='container'>
+			<h2>Log In</h2>
+			<form>
 				<div class='form-group'>
-					<label for='exampleInputEmail1'>Sign in with email and password</label>
+					<label for='exampleInputEmail1'>
+						Sign in with email and password
+					</label>
 					<input
+						onChange={(e) => setUser(e.target.value)}
+						value={user}
 						type='email'
 						class='form-control'
 						id='exampleInputEmail1'
 						aria-describedby='emailHelp'
 						placeholder='Enter email'
 					/>
-	
 				</div>
 				<div class='form-group'>
 					<label for='exampleInputPassword1'>Password</label>
 					<input
+						onChange={(e) => setPass(e.target.value)}
+						value={pass}
 						type='password'
 						class='form-control'
 						id='exampleInputPassword1'
 						placeholder='Password'
 					/>
 				</div>
-				<button type='submit' class='btn btn-dark btn-primary mr-2'>
+				<button
+					onClick={handleSignIn}
+					type='submit'
+					class='btn btn-dark btn-primary mr-2'>
 					Sign In
 				</button>
-        <button type='submit' class='btn btn-primary'>
+				<button onClick={handleGoogle} type='submit' class='btn btn-primary'>
 					Google
 				</button>
 			</form>
-    </div>
-  )
+		</div>
+	);
 }
