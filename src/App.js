@@ -36,9 +36,6 @@ class App extends React.Component {
 		return (
 			<Router>
 				<div>
-					<button onClick={()=>console.log(this.state.currentUser.displayName)} type='submit' class='btn btn-dark btn-danger mr-2'>
-						Debugger
-					</button>
 					<div className='container'>
 						<Navbar bg='light' expand='lg'>
 							<Navbar.Toggle aria-controls='basic-navbar-nav' />
@@ -50,7 +47,7 @@ class App extends React.Component {
 								</Nav>
 								<Nav className='mr-auto'>
 									<Nav.Link>
-										<Link to='/profile'>Profile</Link>
+										<Link to='/profile'>{this.state.currentUser? this.state.currentUser.displayName :"Profile"}</Link>
 									</Nav.Link>
 								</Nav>
 								<Nav className='mr-auto'>
@@ -79,7 +76,7 @@ class App extends React.Component {
 							<ShopPage />
 						</Route>
 						<Route path='/Tracker'>
-							<TrackerPage />
+							<TrackerPage currentUser = {this.state.currentUser}/>
 						</Route>
 					</Switch>
 				</div>
