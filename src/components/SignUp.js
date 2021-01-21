@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 
-import { auth, firestore } from "../firebase.js";
+import { signUp } from "../firebase/firebase.auth.js";
 
 export default function SignUp() {
 	const [user, setUser] = useState("");
@@ -13,18 +13,7 @@ export default function SignUp() {
 	const handleSignUp = (e) => {
 		e.preventDefault();
 		// To handle sign up with firebase
-		if (pass != rePass) {
-			alert("Passwords are different");
-		}
-		// sign up in firebase
-		else {
-			console.log(auth);
-			console.log(firestore);
-			auth
-				.createUserWithEmailAndPassword(user, pass)
-				.then((cred) => console.log(cred))
-				.catch((err) => alert(err.message));
-		}
+		signUp(user,name,pass,rePass)
 	};
 
 	return (
