@@ -1,14 +1,14 @@
 /** @format */
 
 import React, { useState } from "react";
-import {logOut} from "../firebase/firebase.auth.js"
+import {logOut,getCurrentStatus} from "../firebase/firebase.auth.js"
 
 export default function LogOut() {
 
 	return (
 		<div className='container'>
 				<button
-					onClick={logOut}
+					onClick={getCurrentStatus}
 					type='submit'
 					class='btn btn-danger mr-2'>
 					Status

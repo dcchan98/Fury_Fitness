@@ -1,3 +1,5 @@
+import firebase from 'firebase/app'
+
 import {
   auth,
   firestore
@@ -21,6 +23,17 @@ export const logIn = (user, pass) => {
 
 export const logOut = () => {
   auth.signOut()
+  alert("Signed out")
+}
+
+export const getCurrentStatus = ()=>{
+  if (auth.user) {
+    console.log(auth.user)
+  // User is signed in.
+} else {
+  console.log("No user is signed in")
+  // No user is signed in.
+}
 }
 
 auth.onAuthStateChanged(
@@ -34,3 +47,12 @@ auth.onAuthStateChanged(
     }
   }
 );
+
+// google authentication 
+
+const provider = new firebase.auth.GoogleAuthProvider();
+provider.setCustomParameters({prompt:"select_account"});
+
+export const signInWithGoogle = ()=>{
+  auth.signInWithPopup(provider)
+}
