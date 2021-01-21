@@ -8,15 +8,24 @@ import SignUp from "../components/SignUp";
 
 import {logStatus} from "../firebase/firebase.auth"
 
-export default function AuthenticationPage() {
+export default function AuthenticationPage(props) {
 
-
-	return (
+	if(props.currentUser==null){
+		return (
 		<div>
-			<LogOut />
 			<LogIn />
 			<br></br>
 			<SignUp />
 		</div>
 	);
+	}
+
+	else{ // signed in
+		return (
+		<div>
+			<LogOut />
+		</div>
+	);
+	}
+
 }
