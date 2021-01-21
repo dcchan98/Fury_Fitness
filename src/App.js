@@ -8,7 +8,7 @@ import TrackerPage from "./pages/TrackerPage";
 
 import { auth } from "./firebase/firebase";
 
-import { Navbar, Nav } from "react-bootstrap";
+import { Navbar, Nav, NavItem } from "react-bootstrap";
 
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
@@ -18,12 +18,18 @@ class App extends React.Component {
 		this.state = { currentUser: null };
 	}
 
+	unsubscribeFromAuth = null;
+
 	componentDidMount() {
-		auth.onAuthStateChanged((user) => {
+		this.unsubscribeFromAuth = auth.onAuthStateChanged((user) => {
 			this.setState({ currentUser: user });
 			console.log("Current User in App state");
 			console.log(this.state.currentUser);
 		});
+	}
+
+	componentWillUnmount() {
+		this.unsubscribeFromAuth();
 	}
 
 	render() {
