@@ -36,17 +36,7 @@ export const getCurrentStatus = ()=>{
 }
 }
 
-auth.onAuthStateChanged(
-  user => {
-    if (user != null) {
-      console.log("user signed in")
-      console.log(user)
-    }
-    else{
-      console.log("user not signed in")
-    }
-  }
-);
+
 
 // google authentication 
 
