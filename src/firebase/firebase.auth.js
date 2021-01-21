@@ -1,6 +1,9 @@
-import {auth,firestore} from "./firebase"
+import {
+  auth,
+  firestore
+} from "./firebase"
 
-export const signUp = ( user,name, pass, rePass) => {
+export const signUp = (user, name, pass, rePass) => {
   if (pass != rePass) {
     alert("Passwords are different");
   }
@@ -8,7 +11,26 @@ export const signUp = ( user,name, pass, rePass) => {
   else {
     auth
       .createUserWithEmailAndPassword(user, pass)
-      .then((cred) => console.log(cred))
       .catch((err) => alert(err.message));
   }
 }
+
+export const logIn = (user, pass) => {
+  auth.signInWithEmailAndPassword(user, pass).catch((err) => alert(err.message));
+}
+
+export const logOut = () => {
+  auth.signOut()
+}
+
+auth.onAuthStateChanged(
+  user => {
+    if (user != null) {
+      console.log("user signed in")
+      console.log(user)
+    }
+    else{
+      console.log("user not signed in")
+    }
+  }
+);

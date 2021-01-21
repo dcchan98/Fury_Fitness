@@ -10,10 +10,18 @@ export default function SignUp() {
 	const [pass, setPass] = useState("");
 	const [rePass, setRePass] = useState("");
 
+	const fieldClear = ()=>{
+		setUser("");
+		setName("");
+		setPass("");
+		setRePass("");
+	}
+
 	const handleSignUp = (e) => {
 		e.preventDefault();
 		// To handle sign up with firebase
 		signUp(user,name,pass,rePass)
+		fieldClear()
 	};
 
 	return (

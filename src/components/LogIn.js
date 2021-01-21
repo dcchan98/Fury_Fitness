@@ -2,13 +2,17 @@
 
 import React, { useState } from "react";
 
+import {logIn} from "../firebase/firebase.auth.js"
+
 export default function LogIn() {
 	const [user, setUser] = useState("");
 	const [pass, setPass] = useState("");
 
 	const handleSignIn = (e) => {
     e.preventDefault();
-    // To handle sign in with firebase
+		// To handle sign in with firebase
+		
+		logIn(user,pass);
 		console.log(`user: ${user}`);
 		console.log(`pass: ${pass}`);
 	};
