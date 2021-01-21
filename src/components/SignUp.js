@@ -2,6 +2,8 @@
 
 import React, { useState } from "react";
 
+import {auth,firestore} from '../firebase.js'
+
 export default function SignUp() {
 	const [user, setUser] = useState("");
 	const [name, setName] = useState("");
@@ -10,8 +12,16 @@ export default function SignUp() {
   
   const handleSignUp = e=>{ 
     e.preventDefault();
-    // To handle sign up with firebase
-    console.log(user,name,pass,rePass)
+		// To handle sign up with firebase
+		if(pass!=rePass){
+			alert("Passwords are different")
+		}
+		else{ // sign up in firebase
+			console.log(auth)
+			console.log(firestore)
+			auth.createUserWithEmailAndPassword(user,pass)
+			
+		}
   }
 
 	return (
