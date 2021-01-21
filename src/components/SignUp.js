@@ -2,27 +2,30 @@
 
 import React, { useState } from "react";
 
-import {auth,firestore} from '../firebase.js'
+import { auth, firestore } from "../firebase.js";
 
 export default function SignUp() {
 	const [user, setUser] = useState("");
 	const [name, setName] = useState("");
 	const [pass, setPass] = useState("");
-  const [rePass, setRePass] = useState("");
-  
-  const handleSignUp = e=>{ 
-    e.preventDefault();
+	const [rePass, setRePass] = useState("");
+
+	const handleSignUp = (e) => {
+		e.preventDefault();
 		// To handle sign up with firebase
-		if(pass!=rePass){
-			alert("Passwords are different")
+		if (pass != rePass) {
+			alert("Passwords are different");
 		}
-		else{ // sign up in firebase
-			console.log(auth)
-			console.log(firestore)
-			auth.createUserWithEmailAndPassword(user,pass)
-			
+		// sign up in firebase
+		else {
+			console.log(auth);
+			console.log(firestore);
+			auth
+				.createUserWithEmailAndPassword(user, pass)
+				.then((cred) => console.log(cred))
+				.catch((err) => alert(err.message));
 		}
-  }
+	};
 
 	return (
 		<div className='container'>
@@ -77,7 +80,10 @@ export default function SignUp() {
 						placeholder='Re-enter your password'
 					/>
 				</div>
-				<button onClick={handleSignUp} type='submit' class='btn btn-dark btn-primary mr-2'>
+				<button
+					onClick={handleSignUp}
+					type='submit'
+					class='btn btn-dark btn-primary mr-2'>
 					Sign Up
 				</button>
 			</form>
