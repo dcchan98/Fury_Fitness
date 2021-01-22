@@ -20,7 +20,7 @@ function FoodTable(props) {
         <tbody>
           {/* Render food item here */}
           {props.foodList.length != 0
-            ? props.foodList.map(foodObj => <FoodItem food={foodObj} />)
+            ? props.foodList.map(foodObj => <FoodItem food={foodObj} deleteFood = {props.deleteFood} />)
             : []}
         </tbody>
       </Table>
