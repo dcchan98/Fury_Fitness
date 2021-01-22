@@ -16,9 +16,17 @@ export const getUsers =  () =>{
 }
 
 // add user
-export const addNewUser =  (displayName,uid) =>{
+export const addNewUser =  async (displayName,uid) =>{
 
+const ref = firestore.collection('users').doc(uid);
+const doc = await ref.get();
+    
+if (!doc.exists) {
+  console.log("creating new user")
   firestore.collection("users").doc(uid).set({displayName,uid,foodItems:[]})
+} else {
+    console.log("user exists")
+}
 }
 
 // // get specific user 
