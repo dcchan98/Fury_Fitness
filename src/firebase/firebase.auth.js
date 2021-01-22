@@ -14,6 +14,7 @@ export const signUp = async (user, name, pass, rePass) => {
     await auth
       .createUserWithEmailAndPassword(user, pass).then(msg=>{msg.user.updateProfile({displayName:name})})
       .catch((err) => alert(err.message));
+    auth.signOut()
   }
 }
 

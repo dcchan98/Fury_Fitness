@@ -15,6 +15,12 @@ export const getUsers =  () =>{
     )
 }
 
+// add user
+export const addNewUser =  (displayName,uid) =>{
+
+  firestore.collection("users").doc(uid).set({displayName,uid,foodItems:[]})
+}
+
 // // get specific user 
 // export const getSpecificUser = async (uid) =>{
 

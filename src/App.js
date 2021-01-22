@@ -7,6 +7,7 @@ import ShopPage from "./pages/ShopPage";
 import TrackerPage from "./pages/TrackerPage";
 
 import { auth } from "./firebase/firebase";
+import { addNewUser } from "./firebase/firebase.storage";
 
 import { Navbar, Nav, NavItem } from "react-bootstrap";
 
@@ -20,12 +21,23 @@ class App extends React.Component {
 
 	unsubscribeFromAuth = null;
 
-	componentDidMount() {
-		this.unsubscribeFromAuth = auth.onAuthStateChanged((user) => {
-			this.setState({ currentUser: user });
-			console.log("Current User in App state");
-			console.log(this.state.currentUser);
-		});
+	async componentDidMount() {
+	
+			this.unsubscribeFromAuth = auth.onAuthStateChanged((user) => {
+				this.setState({ currentUser: user });
+			});
+			
+		};
+
+		// add user if he/ she does not exist
+
+	componentDidUpdate() {
+		if (this.state.currentUser) {
+			addNewUser(
+				this.state.currentUser.displayName,
+				this.state.currentUser.uid
+			);
+		}
 	}
 
 	componentWillUnmount() {
@@ -47,7 +59,11 @@ class App extends React.Component {
 								</Nav>
 								<Nav className='mr-auto'>
 									<Nav.Link>
-										<Link to='/profile'>{this.state.currentUser? this.state.currentUser.displayName :"Profile"}</Link>
+										<Link to='/profile'>
+											{this.state.currentUser && this.state.currentUser.displayName
+												? this.state.currentUser.displayName
+												: "Profile"}
+										</Link>
 									</Nav.Link>
 								</Nav>
 								<Nav className='mr-auto'>
@@ -76,7 +92,7 @@ class App extends React.Component {
 							<ShopPage />
 						</Route>
 						<Route path='/Tracker'>
-							<TrackerPage currentUser = {this.state.currentUser}/>
+							<TrackerPage currentUser={this.state.currentUser} />
 						</Route>
 					</Switch>
 				</div>
