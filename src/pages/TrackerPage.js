@@ -4,12 +4,13 @@ import FoodInput from "../components/FoodInput"
 
 import Food from "../model/classes/Food"
 
+
+
 export default function TrackerPage(props) {
 
   const [foodList,setFoodList] = useState([]);
 
-  // to fetch data from firestore
-  useEffect(()=>{},[])
+  
 
   const addFood = (name,p,c,f)=>{
     const toAdd = new Food(name,p,c,f);
@@ -23,12 +24,12 @@ export default function TrackerPage(props) {
     return (
     <div className ="container">
 
-      {`${props.currentUser.displayName}'s Tracker`}
+      {`${props.currentUser.displayName}'s `}
       <br />
-        <h1>Caloric Counter</h1>
+        <h1>Caloric Calculator</h1>
         <br />
 
-        <FoodInput addFood={addFood} />
+        <FoodInput currentUser = {props.currentUser} addFood={addFood} />
 
         <br />
         <br />

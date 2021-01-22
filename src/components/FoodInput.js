@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 
+
 function FoodInput(props) {
 	const [name, setName] = useState("");
 	const [proteins, setProteins] = useState("");
