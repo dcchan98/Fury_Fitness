@@ -1,1 +1,9 @@
-import {auth,firestore} from "./firebase"
+import {
+  auth,
+  firestore
+} from "./firebase"
+
+firestore.settings({
+  timestampsInSnapshots: true
+})
+
