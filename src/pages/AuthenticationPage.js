@@ -10,15 +10,14 @@ import SignUp from "../components/SignUp";
 import Jumbotron from "react-bootstrap/Jumbotron";
 
 function AuthenticationPage(props) {
-	if (props.currentUser == null) {
+	if (props.currentUser.displayName == null) {
 		return (
 			<div>
 				<LogIn />
 				<br></br>
 				<SignUp />
-				
-				{/* remove this later */}
-				<LogOut /> 
+
+	
 			</div>
 		);
 	} else {
@@ -26,10 +25,7 @@ function AuthenticationPage(props) {
 		return (
 			<div className='container'>
 				<Jumbotron>
-					<h1>{`Welcome ${
-						props.currentUser.displayName != null
-							? props.currentUser.displayName
-							: ""
+					<h1>{`Welcome ${ props.currentUser.displayName			
 					}`}</h1>
 					<br></br>
 					<p>
@@ -45,8 +41,11 @@ function AuthenticationPage(props) {
 	}
 }
 
-const mapStateToProps = (state) => ({
-	currentUser: state.user.currentUser,
-});
+const mapStateToProps = (state) => {
+	if (state.user.currentUser==null){
+		return {currentUser: {displayName:null}}
+	}
+	return {currentUser: state.user.currentUser.user}
+};
 
 export default connect(mapStateToProps)(AuthenticationPage);

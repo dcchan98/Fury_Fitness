@@ -2,9 +2,12 @@
 
 import React, { useState } from "react";
 
+import {connect} from 'react-redux';
+import {setCurrentUser} from "../redux/user/user-actions"
+
 import {logIn,signInWithGoogle} from "../firebase/firebase.auth.js"
 
-export default function LogIn() {
+function LogIn(props) {
 	const [user, setUser] = useState("");
 	const [pass, setPass] = useState("");
 
@@ -17,14 +20,14 @@ export default function LogIn() {
 	const handleSignIn = (e) => {
     e.preventDefault();
 		// To handle sign in with firebase	
-		logIn(user,pass);
+		logIn(user,pass).then(user=>props.setCurrentUser(user));
 		fieldClear();
 	};
 
 	const handleGoogle = (e) => {
     // To handle sign in with firebase
     e.preventDefault();
-		signInWithGoogle();
+		signInWithGoogle().then(user=>props.setCurrentUser(user));;
 	};
 
 	return (
@@ -69,3 +72,9 @@ export default function LogIn() {
 		</div>
 	);
 }
+
+const mapDispatchToProps = dispatch=>({
+	setCurrentUser: user => dispatch(setCurrentUser(user))
+})
+
+export default connect(null,mapDispatchToProps)(LogIn);

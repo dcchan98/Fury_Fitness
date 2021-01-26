@@ -2,9 +2,11 @@
 
 import React, { useState } from "react";
 
-import { signUp } from "../firebase/firebase.auth.js";
+import { signUp } from "../firebase/firebase.auth.js";  
 
-export default function SignUp() {
+
+
+function SignUp(props) {
 	const [user, setUser] = useState("");
 	const [name, setName] = useState("");
 	const [pass, setPass] = useState("");
@@ -20,7 +22,7 @@ export default function SignUp() {
 	const handleSignUp = (e) => {
 		e.preventDefault();
 		// To handle sign up with firebase
-		signUp(user,name,pass,rePass)
+		signUp(user,name,pass,rePass)	
 		fieldClear()
 	};
 
@@ -87,3 +89,6 @@ export default function SignUp() {
 		</div>
 	);
 }
+
+
+export default (SignUp);

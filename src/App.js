@@ -1,5 +1,6 @@
 /** @format */
 import React, { useState, useEffect } from "react";
+import {connect} from "react-redux";
 
 import HomePage from "./pages/HomePage";
 import AuthenticationPage from "./pages/AuthenticationPage";
@@ -7,7 +8,7 @@ import ShopPage from "./pages/ShopPage";
 import TrackerPage from "./pages/TrackerPage";
 
 import { auth } from "./firebase/firebase";
-import { addNewUser } from "./firebase/firebase.storage";
+// import { addNewUser } from "./firebase/firebase.storage";
 
 import { Navbar, Nav, NavItem } from "react-bootstrap";
 
@@ -16,29 +17,29 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 class App extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = { currentUser: null };
+		
 	}
 
 	unsubscribeFromAuth = null;
 
-	async componentDidMount() {
+	// async componentDidMount() {
 	
-			this.unsubscribeFromAuth = auth.onAuthStateChanged((user) => {
-				this.setState({ currentUser: user });
-			});
+	// 		this.unsubscribeFromAuth = auth.onAuthStateChanged((user) => {
+	// 			this.setState({ currentUser: user });
+	// 		});
 			
-		};
+	// 	};
 
 		// add user if he/ she does not exist
 
-	componentDidUpdate() {
-		if (this.state.currentUser) {
-			addNewUser(
-				this.state.currentUser.displayName,
-				this.state.currentUser.uid
-			);
-		}
-	}
+	// componentDidUpdate() {
+	// 	if (this.state.currentUser) {
+	// 		addNewUser(
+	// 			this.state.currentUser.displayName,
+	// 			this.state.currentUser.uid
+	// 		);
+	// 	}
+	// }
 
 	componentWillUnmount() {
 		this.unsubscribeFromAuth();
@@ -60,8 +61,8 @@ class App extends React.Component {
 								<Nav className='mr-auto'>
 									<Nav.Link>
 										<Link to='/profile'>
-											{this.state.currentUser && this.state.currentUser.displayName
-												? this.state.currentUser.displayName
+											{this.props.displayName
+												? this.props.displayName
 												: "Profile"}
 										</Link>
 									</Nav.Link>
@@ -92,7 +93,7 @@ class App extends React.Component {
 							<ShopPage />
 						</Route>
 						<Route path='/Tracker'>
-							<TrackerPage currentUser={this.state.currentUser} />
+							<TrackerPage  />
 						</Route>
 					</Switch>
 				</div>
@@ -101,4 +102,11 @@ class App extends React.Component {
 	}
 }
 
-export default App;
+const mapStateToProps = state =>{
+	if(state.user.currentUser==null){
+		return 
+	}
+	return {displayName: state.user.currentUser.user.displayName}
+}
+
+export default connect(mapStateToProps)(App);
