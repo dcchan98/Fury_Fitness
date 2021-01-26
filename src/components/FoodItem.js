@@ -1,11 +1,15 @@
 import React from "react"
 
+import {connect} from 'react-redux'
+import {deleteFoodItem} from '../redux/food/food-actions'
+
 function FoodItem(props) {
   return (
     <>
+
       <tr>
         <td>
-        <button onClick={() => props.deleteFood(props.food)}>Delete</button>
+        <button onClick={() => props.deleteFoodItem(props.food)}>Delete</button>
           {"  " + props.food.getName()}
         </td>
         <td>{props.food.getP()}</td>
@@ -17,5 +21,8 @@ function FoodItem(props) {
   )
 }
 
+const mapDispatchToProps = dispatch=>({
+  deleteFoodItem: foodItem => dispatch(deleteFoodItem(foodItem))
+})
 
-export default (FoodItem)
+export default connect(null,mapDispatchToProps)(FoodItem);

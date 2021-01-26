@@ -1,7 +1,8 @@
 /** @format */
 
 import React, { useState } from "react";
-
+import {addFoodItem} from "../redux/food/food-actions"
+import {connect} from "react-redux"
 
 function FoodInput(props) {
 	const [name, setName] = useState("");
@@ -24,7 +25,7 @@ function FoodInput(props) {
 	const handleSubmit = (event) => {
 		// ToDo: Pick a better ID option
 		event.preventDefault();
-		props.addFood(name, proteins, carbs, fats);
+		props.addFoodItem(name, proteins, carbs, fats);
 		// reset
 		setName("");
 		setProteins("");
@@ -77,4 +78,9 @@ function FoodInput(props) {
 	);
 }
 
-export default FoodInput;
+const mapDispatchToProps = dispatch=>({
+	addFoodItem: (name,p,c,f) => dispatch(addFoodItem(name,p,c,f))
+})
+
+
+export default connect(null,mapDispatchToProps)(FoodInput);

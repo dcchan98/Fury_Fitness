@@ -6,11 +6,11 @@ const INITIAL_STATE = {
 const foodReducer = (state= INITIAL_STATE,action)=>{
   switch (action.type){
     case 'SET_FOOD_LIST': // use for fetching on first render
-      return {...state,currentUser: action.payload}
+      return {...state,foodList: action.payload}
     case 'ADD_FOOD_ITEM': // when food item is added
-    return {...state,currentUser: [...state.foodList,action.payload]}
+    return {...state,foodList: [...state.foodList,action.payload]}
     case 'DELETE_FOOD_ITEM': // use for fetching on first render
-      return {...state,currentUser: state.foodList.filter(x=>x!=action.payload)}
+      return {...state,foodList: state.foodList.filter(x=>x!=action.payload)}
     default:
       return state;
   }

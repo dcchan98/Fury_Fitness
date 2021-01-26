@@ -20,7 +20,7 @@ class App extends React.Component {
 		
 	}
 
-	unsubscribeFromAuth = null;
+	// unsubscribeFromAuth = null;
 
 	// async componentDidMount() {
 	
@@ -41,9 +41,9 @@ class App extends React.Component {
 	// 	}
 	// }
 
-	componentWillUnmount() {
-		this.unsubscribeFromAuth();
-	}
+	// componentWillUnmount() {
+	// 	this.unsubscribeFromAuth();
+	// }
 
 	render() {
 		return (

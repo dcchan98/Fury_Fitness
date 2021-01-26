@@ -1,11 +1,11 @@
 export default class Food{
 
-constructor(name,p,c,f,id){
+constructor(name,p,c,f){
   this.name = name;
   this.p = Number(p);
   this.f =Number(f);
   this.c = Number(c);
-  this.id = id;
+
 }
 
 getTotalCalories(){

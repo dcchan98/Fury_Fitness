@@ -1,3 +1,5 @@
+import Food from "../../model/classes/Food"
+
 export const setFoodList = foodList =>{
   return {
     type: 'SET_FOOD_LIST',
@@ -5,10 +7,11 @@ export const setFoodList = foodList =>{
   }
 }
 
-export const addFoodItem = food =>{
+
+export const addFoodItem = (name,p,c,f)=>{
   return {
     type: 'ADD_FOOD_ITEM',
-    payload: food
+    payload: new Food(name,p,c,f)
   }
 }
 
