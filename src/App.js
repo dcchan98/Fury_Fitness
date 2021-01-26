@@ -86,7 +86,7 @@ class App extends React.Component {
 							<HomePage />
 						</Route>
 						<Route path='/profile'>
-							<AuthenticationPage currentUser={this.state.currentUser} />
+							<AuthenticationPage  />
 						</Route>
 						<Route path='/shop'>
 							<ShopPage />
