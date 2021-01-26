@@ -1,11 +1,16 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
+/** @format */
 
-import 'bootstrap/dist/css/bootstrap.min.css';
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App";
+
+import "bootstrap/dist/css/bootstrap.min.css";
+
+import { Provider } from "react-redux";
 
 ReactDOM.render(
-  <App/>,
-  document.getElementById('root')
+	<Provider>
+		<App />
+	</Provider>,
+	document.getElementById("root")
 );
-
