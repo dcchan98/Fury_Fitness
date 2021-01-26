@@ -1,5 +1,7 @@
 import React from "react"
 import FoodItem from "./FoodItem"
+import {connect} from "react-redux"
+
 
 import Table from "react-bootstrap/Table"
 import { v4 as uuidv4 } from 'uuid';
@@ -21,13 +23,16 @@ function FoodTable(props) {
         <tbody>
           {/* Render food item here */}
           {props.foodList && props.foodList.length != 0
-            ? props.foodList.map(foodObj => <FoodItem key={uuidv4()}  food={foodObj} deleteFood = {props.deleteFood} />)
+            ? props.foodList.map(foodObj => <FoodItem key={uuidv4()} food={foodObj}  />)
             : []}
         </tbody>
       </Table>
     </>
   )
 }
+ const mapStateToProps = state=>({
+  foodList:state.food.foodList
+ })
 
 
-export default (FoodTable)
+export default connect(mapStateToProps)(FoodTable)

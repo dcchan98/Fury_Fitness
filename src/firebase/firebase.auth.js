@@ -19,7 +19,7 @@ export const signUp = async (user, name, pass, rePass) => {
 }
 
 export const logIn = (user, pass) => {
-  auth.signInWithEmailAndPassword(user, pass).catch((err) => alert(err.message));
+  return auth.signInWithEmailAndPassword(user, pass).catch((err) => alert(err.message));
 }
 
 export const logOut = () => {
@@ -45,6 +45,6 @@ provider.setCustomParameters({
   prompt: "select_account"
 });
 
-export const signInWithGoogle = async () => {
-  const fetchedData = await auth.signInWithPopup(provider)
+export const signInWithGoogle =  () => {
+  return auth.signInWithPopup(provider)
 }
