@@ -1,8 +1,9 @@
 import React from "react";
 
 import {  Doughnut } from "react-chartjs-2";
+import {connect} from "react-redux"
 
-export default function Percentage() {
+function PercentageChart() {
 	const data = {
 		labels: ["Proteins", "Carbs", "Fats"],
 		datasets: [
@@ -43,3 +44,5 @@ export default function Percentage() {
 		</div>
 	);
 }
+
+export default connect()(PercentageChart)
