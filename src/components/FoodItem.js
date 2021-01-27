@@ -10,12 +10,12 @@ function FoodItem(props) {
       <tr>
         <td>
         <button onClick={() => props.deleteFoodItem(props.food)}>Delete</button>
-          {"  " + props.food.getName()}
+          {"  " + props.food.name}
         </td>
-        <td>{props.food.getP()}</td>
-        <td>{props.food.getC()}</td>
-        <td>{props.food.getF()}</td>
-        <td>{props.food.getTotalCalories()}</td>
+        <td>{props.food.p}</td>
+        <td>{props.food.c}</td>
+        <td>{props.food.f}</td>
+        <td>{props.food.kcal}</td>
       </tr>
     </>
   )

@@ -5,10 +5,10 @@ import FoodInput from "../components/FoodInput";
 import { connect } from "react-redux";
 
 function TrackerPage(props) {
-	if (props.currentUser == null) {
+	if (props.currentUser != null) {
 		return (
 			<div className='container'>
-				{/* {`${props.currentUser.displayName}'s `} */}
+				{`${props.currentUser.displayName}'s `}
 				<br />
 				<h1>Caloric Calculator</h1>
 				<br />
