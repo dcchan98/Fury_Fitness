@@ -6,10 +6,16 @@ import {connect} from "react-redux"
 import Table from "react-bootstrap/Table"
 import { v4 as uuidv4 } from 'uuid';
 
+import {getTotalCaloriesFromList} from "../model/classes/FoodListHandler"
 
 function FoodTable(props) {
+
+  const totalKcal = getTotalCaloriesFromList(props.foodList)
+
   return (
     <>
+    <h2>Total Calories: {totalKcal}</h2>
+    <br></br>
       <Table striped bordered hover>
         <thead>
           <tr>

@@ -35,7 +35,7 @@ function PercentageChart(props) {
 	const options = {
     title: {
       display: true,
-      text: 'Macronutrient Percentage'
+      text: 'Macronutrient Calories / Kcal'
   },
 		maintainAspectRatio: true,
 
