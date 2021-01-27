@@ -5,7 +5,6 @@ import FoodInput from "../components/FoodInput";
 import { connect } from "react-redux";
 
 function TrackerPage(props) {
-
 	if (props.currentUser != null) {
 		return (
 			<div className='container'>
@@ -14,7 +13,7 @@ function TrackerPage(props) {
 				<h1>Caloric Calculator</h1>
 				<br />
 
-				<FoodInput currentUser={props.currentUser}  />
+				<FoodInput />
 
 				<br />
 				<br />
@@ -31,10 +30,10 @@ function TrackerPage(props) {
 }
 
 const mapStateToProps = (state) => {
-	if (state.user.currentUser==null){
-		return {currentUser: null}
+	if (state.user.currentUser == null) {
+		return { currentUser: null };
 	}
-	return {currentUser: state.user.currentUser.user}
+	return { currentUser: state.user.currentUser.user };
 };
 
 export default connect(mapStateToProps)(TrackerPage);
