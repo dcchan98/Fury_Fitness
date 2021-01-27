@@ -2,14 +2,21 @@ import React from "react";
 
 import {  Doughnut } from "react-chartjs-2";
 import {connect} from "react-redux"
+import {getTotalProteinFromList,getTotalCarbsFromList,getTotalFatsFromList} from "../model/classes/FoodListHandler"
 
-function PercentageChart() {
+function PercentageChart(props) {
+
+	const totalP = getTotalProteinFromList(props.foodList)
+	const totalC = getTotalCarbsFromList(props.foodList)
+	const totalF = getTotalFatsFromList(props.foodList)
+
+
 	const data = {
 		labels: ["Proteins", "Carbs", "Fats"],
 		datasets: [
 			{
 				label: "Macro Intake",
-				data: [100, 40, 40],
+				data: [totalP, totalC, totalF],
 				backgroundColor: [
 					"rgba(255, 99, 132, 0.2)",
 					"rgba(54, 162, 235, 0.2)",
@@ -45,4 +52,8 @@ function PercentageChart() {
 	);
 }
 
-export default connect()(PercentageChart)
+const mapStateToProps = state=>({
+  foodList:state.food.foodList
+ })
+
+export default connect(mapStateToProps)(PercentageChart)
