@@ -6,10 +6,9 @@ import {deleteFoodItem} from '../redux/food/food-actions'
 function FoodItem(props) {
   return (
     <>
-
       <tr>
         <td>
-        <button onClick={() => props.deleteFoodItem(props.food)}>Delete</button>
+        <input type='submit' onClick={() => props.deleteFoodItem(props.food)} value='Delete'></input>
           {"  " + props.food.name}
         </td>
         <td>{props.food.p}</td>

@@ -25,6 +25,10 @@ export default function Percentage() {
 	};
 
 	const options = {
+    title: {
+      display: true,
+      text: 'Macronutrient Percentage'
+  },
 		maintainAspectRatio: true,
 
 	};
