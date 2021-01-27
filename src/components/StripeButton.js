@@ -12,8 +12,9 @@ export default function StripeButton(props) {
 			stripeKey={pKey}
 			token={() => alert("Successfully paid!")}
 			label='Buy'
+			image = {props.hero.imgPath}
 			amount={stripePrice}
-			description={`$ ${props.price}`}
+			description={props.hero.title}
 		/>
 	);
 }

@@ -22,7 +22,7 @@ class ShopCard extends Component {
 						<Card.Text>
             {this.props.hero.description}
 						</Card.Text>
-						{this.props.currentUser.displayName == null?<Button variant="secondary" disabled>Log In To Buy</Button>:<StripeButton price ={PRICE}/>}
+						{this.props.currentUser.displayName == null?<Button  variant="secondary" disabled>Log In To Buy</Button>:<StripeButton hero={this.props.hero} price ={PRICE}/>}
 						
 					</Card.Body>
 				</Card>
