@@ -30,6 +30,7 @@ function PercentageChart(props) {
 				borderWidth: 3,
 			},
 		],
+
 	};
 
 	const options = {
