@@ -4,6 +4,11 @@ import React, { Component } from "react";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 
+import StripeButton from "./StripeButton";
+
+
+const PRICE = 49.99 // cost of hiring training is  sgd 49.99
+
 export default class ShopCard extends Component {
 	render() {
 		return (
@@ -16,7 +21,9 @@ export default class ShopCard extends Component {
 						<Card.Text>
             {this.props.hero.description}
 						</Card.Text>
-						<Button variant='primary'>Add to Basket</Button>
+
+						<Button variant="secondary" disabled>Log In To Buy</Button>
+						<StripeButton price ={PRICE}/>
 					</Card.Body>
 				</Card>
 			</div>

@@ -2,10 +2,12 @@
 
 import React from "react";
 import ShopCard from "../components/ShopCard";
+import StripeTesting from "../components/StripeTesting";
 
 import heroCards from "../resources/objects/HeroMainObjects";
 
 import Jumbotron from "react-bootstrap/Jumbotron";
+
 
 export default function ShopPage() {
 	return (
@@ -31,6 +33,7 @@ export default function ShopPage() {
 					<ShopCard hero={obj} />
 				))}
 			</div>
+			<StripeTesting/>
 		</div>
 	);
 }
