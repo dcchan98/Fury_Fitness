@@ -1,6 +1,7 @@
 /** @format */
 import FoodTable from "../components/FoodTable";
 import FoodInput from "../components/FoodInput";
+import PercentageChart from "../components/PercentageChart";
 
 import { connect } from "react-redux";
 
@@ -10,8 +11,10 @@ function TrackerPage(props) {
 			<div className='container'>
 				{`${props.currentUser.displayName}'s `}
 				<br />
-				<h1>Caloric Calculator</h1>
+				<h1>Caloric Tracker</h1>
 				<br />
+
+				<PercentageChart/>
 
 				<FoodInput />
 
