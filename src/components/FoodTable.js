@@ -13,15 +13,12 @@ import { getTotalCaloriesFromList } from "../model/classes/FoodListHandler";
 function FoodTable(props) {
 	const totalKcal = getTotalCaloriesFromList(props.foodList);
 
+	const surplusOrShortage = props.caloricGoal - totalKcal> 0 ? "Shortage":"Surplus"
+	const color = props.caloricGoal - totalKcal> 0 ? "text-primary":"text-danger"
+	const result = props.caloricGoal - totalKcal> 0 ? "more":"less"
+
 	return (
 		<>
-			<Jumbotron>
-				<h2>Calories Consumed: {totalKcal}</h2>
-        <br></br>
-        <h4>Recommended: {totalKcal}</h4>
-        <h4>Shortage/Surplus: {totalKcal}</h4>
-        <h4>We recommend you eat more/less</h4>
-			</Jumbotron>
 			<br></br>
 			<Table striped bordered hover>
 				<thead>
@@ -42,11 +39,27 @@ function FoodTable(props) {
 						: []}
 				</tbody>
 			</Table>
+			<Jumbotron>
+				<h2>Calories Consumed: {totalKcal}</h2>
+				<br></br>
+
+				{props.caloricGoal != -1 ? (
+					<>
+						<h4>Recommended: {props.caloricGoal}</h4>
+						<h4 className={color}>{surplusOrShortage} of : {Math.abs(props.caloricGoal - totalKcal)}</h4>
+						<h4>We recommend you eat {result}</h4>
+					</>
+				) : (
+					<p>Update intake in recommender for suggestions</p>
+				)}
+				<></>
+			</Jumbotron>
 		</>
 	);
 }
 const mapStateToProps = (state) => ({
 	foodList: state.food.foodList,
+	caloricGoal: state.food.caloricGoal,
 });
 
 export default connect(mapStateToProps)(FoodTable);

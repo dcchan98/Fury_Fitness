@@ -10,6 +10,7 @@ function FoodInput(props) {
 	const [carbs, setCarbs] = useState("");
 	const [fats, setFats] = useState("");
 
+
 	const handleInputChange = (event) => {
 		if (event.target.id == "name") {
 			setName(event.target.value);

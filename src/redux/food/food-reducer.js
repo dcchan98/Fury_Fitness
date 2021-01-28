@@ -1,6 +1,6 @@
 const INITIAL_STATE = {
   foodList:[],
-  caloricGoals:{} // for goal setting in future iterations
+  caloricGoal:-1 // for goal setting in future iterations
 }
 
 const foodReducer = (state= INITIAL_STATE,action)=>{
@@ -11,6 +11,8 @@ const foodReducer = (state= INITIAL_STATE,action)=>{
     return {...state,foodList: [...state.foodList,action.payload]}
     case 'DELETE_FOOD_ITEM': // use for fetching on first render
       return {...state,foodList: state.foodList.filter(x=>x!=action.payload)}
+    case 'UPDATE_RECOMMENDED_INTAKE': // use for fetching on first render
+      return {...state,caloricGoal: action.payload}
     default:
       return state;
   }
