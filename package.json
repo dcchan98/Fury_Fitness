@@ -9,6 +9,7 @@
     "bootstrap": "^4.5.3",
     "chart.js": "^2.9.4",
     "firebase": "^8.2.3",
+    "fitness-health-calculations": "^1.0.2",
     "react": "^17.0.1",
     "react-bootstrap": "^1.4.3",
     "react-chartjs-2": "^2.11.1",
