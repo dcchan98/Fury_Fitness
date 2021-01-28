@@ -2,6 +2,7 @@
 import FoodTable from "../components/FoodTable";
 import FoodInput from "../components/FoodInput";
 import PercentageChart from "../components/PercentageChart";
+import Jumbotron from "react-bootstrap/Jumbotron";
 
 import { connect } from "react-redux";
 
@@ -9,10 +10,13 @@ function TrackerPage(props) {
 	if (props.currentUser != null) {
 		return (
 			<div className='container'>
-				{`${props.currentUser.displayName}'s `}
-				<br />
-				<h1>Caloric Tracker</h1>
-				<br />
+
+
+				<Jumbotron>
+					<h1>{`${props.currentUser.displayName}'s Tracker `}</h1>
+			
+
+				</Jumbotron>
 
 				<PercentageChart/>
 
