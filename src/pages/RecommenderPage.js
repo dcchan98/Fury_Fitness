@@ -5,8 +5,30 @@ import PercentageChart from "../components/PercentageChart";
 import { connect } from "react-redux";
 
 function RecommenderPage(props) {
-	return (<h1>Recommender</h1>)
-		
+	if (props.currentUser != null) {
+		return (
+			<div className='container'>
+				{`${props.currentUser.displayName}'s `}
+				<br />
+				<h1>Caloric Tracker</h1>
+				<br />
+
+				<PercentageChart/>
+
+				<FoodInput />
+
+				<br />
+				<br />
+				<FoodTable />
+			</div>
+		);
+	} else {
+		return (
+			<div className='container'>
+				<h1>Log In or Sign Up to use the Recommender</h1>
+			</div>
+		);
+	}
 }
 
 const mapStateToProps = (state) => {

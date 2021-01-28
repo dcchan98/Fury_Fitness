@@ -38,7 +38,7 @@ export default function HomeCarousell() {
 					/>
 					<Carousel.Caption>
 						<h3>Diet</h3>
-						<p>Keep track of your diet with our calorie counter.</p>
+						<p>Log of your diet with our calorie counter.</p>
 					</Carousel.Caption>
 				</Carousel.Item>
 
@@ -49,7 +49,7 @@ export default function HomeCarousell() {
 						alt='Third slide'
 					/>
 					<Carousel.Caption>
-						<h3>Recommender</h3>
+						<h3>Log and Track</h3>
 						<p>Make use of our caloric recommender to get you started.</p>
 					</Carousel.Caption>
 				</Carousel.Item>
