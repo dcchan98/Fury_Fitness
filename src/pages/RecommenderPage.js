@@ -8,18 +8,7 @@ function RecommenderPage(props) {
 	if (props.currentUser != null) {
 		return (
 			<div className='container'>
-				{`${props.currentUser.displayName}'s `}
-				<br />
-				<h1>Caloric Tracker</h1>
-				<br />
-
-				<PercentageChart/>
-
-				<FoodInput />
-
-				<br />
-				<br />
-				<FoodTable />
+				<h1>Recommender</h1>
 			</div>
 		);
 	} else {

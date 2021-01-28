@@ -25,12 +25,18 @@ function FoodInput(props) {
 	const handleSubmit = (event) => {
 		// ToDo: Pick a better ID option
 		event.preventDefault();
-		props.addFoodItem(name, proteins, carbs, fats);
-		// reset
-		setName("");
-		setProteins("");
-		setCarbs("");
-		setFats("");
+		if(isNaN(Number(proteins)||isNaN(Number(carbs)))||isNaN(Number(fats))){
+			alert("Proteins, Carbs and Fats have to be a number")
+		}
+		else{
+			props.addFoodItem(name, proteins, carbs, fats);
+			// reset
+			setName("");
+			setProteins("");
+			setCarbs("");
+			setFats("");
+		}
+
 	};
 
 	return (

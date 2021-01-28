@@ -12,7 +12,7 @@ export default function Steps() {
 			<Jumbotron>
 				<h1>Step 1</h1>
 				<p>
-					Create an account if you have not. You would only be able to access our services with an account.
+					Create an account if you have not. You would only be able to access our services with an account. (You can use google mail for convenience)
 				</p>
 				<p>
 				<Link className ="btn btn-primary"to='/profile'>Go</Link>
