@@ -12,10 +12,17 @@ function RecommenderPage(props) {
 	const [intake, setIntake] = useState(null);
 
 	const handleSubmit= e=>{
-		e.preventDefault();
-		props.updateRecommendedIntake(intake);
-		setIntake(null)
-		alert("Caloric intake updated")
+		if(isNaN(Number(intake)) || Number(intake)<0){
+			alert("Input a valid number")
+		}
+
+		else{
+			e.preventDefault();
+			props.updateRecommendedIntake(intake);
+			setIntake(null)
+			alert("Caloric intake updated")
+		}
+
 	}
 
 
