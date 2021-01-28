@@ -19,7 +19,8 @@ function FoodTable(props) {
 				<h2>Calories Consumed: {totalKcal}</h2>
         <br></br>
         <h4>Recommended: {totalKcal}</h4>
-        <h4>Difference: {totalKcal}</h4>
+        <h4>Shortage/Surplus: {totalKcal}</h4>
+        <h4>We recommend you eat more/less</h4>
 			</Jumbotron>
 			<br></br>
 			<Table striped bordered hover>
