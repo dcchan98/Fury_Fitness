@@ -6,6 +6,7 @@ import HomePage from "./pages/HomePage";
 import AuthenticationPage from "./pages/AuthenticationPage";
 import ShopPage from "./pages/ShopPage";
 import TrackerPage from "./pages/TrackerPage";
+import RecommenderPage from "./pages/RecommenderPage";
 
 import { auth } from "./firebase/firebase";
 // import { addNewUser } from "./firebase/firebase.storage";
@@ -50,7 +51,7 @@ class App extends React.Component {
 			<Router>
 				<div>
 					<div className='container'>
-						<Navbar bg='light' expand='lg'>
+						<Navbar className="mb-3 " bg='light' expand='lg'>
 							<Navbar.Toggle aria-controls='basic-navbar-nav' />
 							<Navbar.Collapse id='basic-navbar-nav'>
 								<Nav className='mr-auto'>
@@ -77,10 +78,14 @@ class App extends React.Component {
 										<Link to='/tracker'>Tracker</Link>
 									</Nav.Link>
 								</Nav>
+								<Nav className='mr-auto'>
+									<Nav.Link>
+										<Link to='/Recommender'>Recommender</Link>
+									</Nav.Link>
+								</Nav>
 							</Navbar.Collapse>
 						</Navbar>
 					</div>
-					<hr />
 
 					<Switch>
 						<Route exact path='/'>
@@ -94,6 +99,9 @@ class App extends React.Component {
 						</Route>
 						<Route path='/Tracker'>
 							<TrackerPage  />
+						</Route>
+						<Route path='/Recommender'>
+							<RecommenderPage  />
 						</Route>
 					</Switch>
 				</div>

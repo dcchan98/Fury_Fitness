@@ -2,13 +2,16 @@
 
 import React from "react";
 
-import {  Doughnut } from "react-chartjs-2";
+
+
+import HomeCarousell from "../components/HomeCarousell"
 
 export default function HomePage() {
-
+	const source = './images/heroes/Nick-Fury.jpg'
 	return (
-		<div classname='container'>
-
-		</div>
+		<>
+			<HomeCarousell/>
+			
+		</>
 	);
 }
